@@ -9,21 +9,25 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return f"{self.ingredient_name}: {self.price_per_unit}, {self.available_quantity}"
+    
 
+
+class RecipeRequirement(models.Model):
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    quantity_needed = models.CharField(max_length=5)
+
+    def __str__(self):
+        return f"{self.ingredient.ingredient_name}: Quantity: {self.quantity_needed} {self.ingredient.unit}s"
+    
 class MenuItem(models.Model):
     item_name = models.CharField(max_length=25)
     price = models.FloatField()
+    ingredients = models.ManyToManyField(RecipeRequirement)
 
     def __str__(self):
         return f"{self.item_name}: {self.price}"
 
-class RecipeRequirements(models.Model):
-    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
-    ingredients = models.ManyToManyField(Ingredient)
 
-    def __str__(self):
-        return self.menu_item.item_name
-    
 class Purchase(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     purchase_time = models.DateTimeField()
