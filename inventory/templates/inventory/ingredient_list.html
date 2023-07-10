@@ -1,0 +1,33 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="ingredients">
+<h1 class="ingredients-title">Ingredients Inventory</h1>
+<table>
+    <tr>
+        <th>ingredient_name</th>
+        <th>available_quantity</th>
+        <th>unit</th>
+        <th>price_per_unit</th>
+    </tr>
+
+    {% for ingredient in ingredient_list %}
+        <tr>
+            <td>{{ingredient.ingredient_name}}</td>
+            <td>{{ingredient.available_quantity}}</td>
+            <td>{{ingredient.unit}}</td>
+            <td>{{ingredient.price_per_unit}}</td>
+        </tr>
+
+    {%endfor%}
+
+</table>
+</div>
+
+{% endblock %}
