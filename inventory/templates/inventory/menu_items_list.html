@@ -1,0 +1,33 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/menu.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+<div class="menu-items">
+<h1 class="menu-items-title">Menu Items</h1>
+
+{% for item in menu %}
+    <div class="item-card">
+        <h2>{{item.item_name}}</h1>
+        <h3>${{item.price}}</h2>
+
+        <p>Ingredients Needed: </p>
+        
+        <ul>
+            {% for ingredient in item.required_ingredients %}
+                <li>{{ingredient.quantity_needed}} {{ingredient.ingredient.unit}} of {{ingredient.ingredient.ingredient_name}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/navbar.css' %}">
+
+{% endblock %}
+
+<header>
+    <a href="{% url 'home' %}">Django Delights!</a>
+    <nav>
+        <ul class="nav__links">
+             <li><a href="{% url 'inventory' %}">Ingredients</a></li>
+             <li><a href="{% url 'menu_items' %}">Menu Items</a></li>
+             <li><a href="{% url 'purchases' %}">Purchases</a></li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,36 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/table.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="purchases">
+    <h1 class="purchases-title">Purchases</h1>
+    <h2>{{revenue}}</h2>
+    <table>
+        <tr>
+            <th>item_name</th>
+            <th>price</th>
+            <th>quantity</th>
+            <th>timestamp</th>
+        </tr>
+    
+        {% for purchase in purchases %}
+            <tr>
+                <td>{{purchase.menu_item.item_name}}</td>
+                <td>{{purchase.menu_item.price}}</td>
+                <td>{{purchase.quantity}}</td>
+                <td>{{purchase.purchase_time}}</td>
+            </tr>
+    
+        {%endfor%}
+    
+    </table>
+    </div>
+{% endblock %}

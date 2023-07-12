@@ -3,27 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Document</title>
 
     {% block head %}
-
+    
     {% endblock %}
 
 </head>
 <body>
-
-    <header>
-        <h1><a href="#">Django Delights!</a></h1>
-        <nav>
-            <ul class="nav__links">
-                 <li><a href="#">Ingredients</a></li>
-                 <li><a href="#">Menu Items</a></li>
-                 <li><a href="#">Purchases</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    {% include 'inventory/navbar.html' %}
 
     {% block content %}
     {% endblock %}

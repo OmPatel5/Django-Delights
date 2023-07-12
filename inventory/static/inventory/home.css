@@ -1,0 +1,9 @@
+.welcome-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    line-height: 5px;
+    background-color: #141414;
+}

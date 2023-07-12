@@ -1,0 +1,6 @@
+.item-card {
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 20%;
+    padding: 20px
+}

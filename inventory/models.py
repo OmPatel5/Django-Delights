@@ -22,7 +22,7 @@ class MenuItem(models.Model):
 class RecipeRequirement(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    quantity_needed = models.CharField(max_length=5)
+    quantity_needed = models.IntegerField(max_length=5)
 
     def __str__(self):
         return f"{self.ingredient.ingredient_name}: Quantity: {self.quantity_needed} {self.ingredient.unit}s"
@@ -32,6 +32,7 @@ class RecipeRequirement(models.Model):
 class Purchase(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     purchase_time = models.DateTimeField()
+    quantity = models.IntegerField(default=1)
 
     def __str__(self):
         return f"Purchase: {self.menu_item.item_name}, Time: {self.purchase_time}"

@@ -1,7 +1,16 @@
 {% extends 'inventory/base.html' %}
 {% load static %}
 
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/home.css' %}">
+{% endblock %}
+
 {% block content %}
-<h1>Django Delights</h1> 
-<h2>Welcome!</h2>
+<div class="welcome-page">
+    <h1>Welcome to Django Delights!</h1>
+    <p>a place where you can check the ingredients inventory, menu items, and purchases</p>
+    <p>get started</p>
+</div>
 {% endblock %}

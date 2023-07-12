@@ -1,83 +1,29 @@
 html { 
  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
- background: rgb(42, 87, 114);
+ background: #24252a;
  color: white;
+ margin: 0;
+ box-sizing: border-box;
+ padding: 0;
+ background-color: #24252a;
 }
+
+
 
 body {
     margin: 0;
 }
 
-table {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    border: 3px solid black;
-    border-radius: 14px;
-  }
-  
-  thead th:nth-child(1) {
-    width: 30%;
-  }
-  
-  thead th:nth-child(2) {
-    width: 20%;
-  }
-  
-  thead th:nth-child(3) {
-    width: 15%;
-  }
-  
-  thead th:nth-child(4) {
-    width: 35%;
-  }
-  
-  th,
-  td {
-    padding: 20px;
-    
-  }
 
-
-tbody tr:nth-child(odd) {
-    background-color: #262627;
-    border-radius: 4px;
-  }
-  
-  tbody tr:nth-child(even) {
-    background-color: #141414;
-  }
-  
-  tbody tr {
-    background-image: url(noise.png);
-  }
-  
-  table {
-    background-color: #ff33cc;
-  }
 
 .ingredients-title {
     font-size: xx-large;
 }
-
-.nav-bar {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    background-color: #262627;
-    font-size: large;
-
-   
-}
-
-.title {
-    color: white;
-    text-decoration: none;
-}
-
 
 
 
 .ingredients { 
     margin-top: 50px;
 }
+
+
