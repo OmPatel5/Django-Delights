@@ -2,20 +2,18 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'inventory/menu.css' %}">
-
 {% endblock %}
 
 
 {% block content %}
-<div class="menu-items">
 <h1 class="menu-items-title">Menu Items</h1>
 
+<div class="menu-items">
 {% for item in menu %}
     <div class="item-card">
         <h2>{{item.item_name}}</h1>
-        <h3>${{item.price}}</h2>
+        <h3>{{item.price}}</h2>
 
         <p>Ingredients Needed: </p>
         
@@ -28,6 +26,7 @@
 
 
 {% endfor %}
+
 </div>
 
 {% endblock %}

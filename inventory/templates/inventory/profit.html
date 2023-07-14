@@ -1,0 +1,17 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/home.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+<div class="welcome-page">
+    <h2>Total Cost of Ingredients from Django Delights: {{cost}}</h2>
+    <h2>Total Revenue from Purchases: {{revenue}}</h2>
+    <h2>Total Profit Django Delights has made: {{profit}}</h2>
+</div>
+{% endblock %}

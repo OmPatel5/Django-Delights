@@ -2,5 +2,11 @@
     border: 1px solid white;
     border-radius: 10px;
     width: 20%;
-    padding: 20px
+    padding: 20px;
+    margin: 20px;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
 }

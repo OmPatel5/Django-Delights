@@ -25,6 +25,7 @@ def get_ingredients():
     # get required ingredients for each item
     for item in range(len(menu_items)):
         menu_items[item].required_ingredients = RecipeRequirement.objects.filter(menu_item=menu_items[item])
+        menu_items[item].price = '${:,.2f}'.format(menu_items[item].price)
 
     return menu_items
 
@@ -40,7 +41,7 @@ def menu_items(request):
     return render(request, 'inventory/menu_items_list.html', context)
 
 
-def revenue(request):
+def revenue():
     purchases = Purchase.objects.all()
 
     total_revenue = 0
@@ -48,18 +49,10 @@ def revenue(request):
     for purchase in purchases: 
         total_revenue += purchase.quantity * purchase.menu_item.price
 
-    print(total_revenue)
+    return total_revenue
 
-    context = {'revenue': total_revenue}
-
-
-    return render(request, 'inventory/revenue.html', context)
-
-
-def cost(request):
+def cost():
     menu_items = get_ingredients()
-
-
     total_cost = 0
 
     # go thru all menu items
@@ -69,7 +62,21 @@ def cost(request):
             # multiply price_per_unit by quantity_needed to get total_cost for that ingredient
             total_cost += ingredient.ingredient.price_per_unit * ingredient.quantity_needed
 
-    context = {'cost': total_cost}
+    print(total_cost)
+    return total_cost
 
-    return render(request, 'inventory/cost.html', context)
-    
+def profit(request):
+    total_cost = cost()
+    total_revenue = revenue()
+
+    profit = total_revenue - total_cost
+
+    context = {
+        'cost': '${:,.2f}'.format(total_cost),
+        'revenue': '${:,.2f}'.format(total_revenue),
+        'profit': '${:,.2f}'.format(profit)
+    }
+
+    return render(request, "inventory/profit.html", context)
+
+
