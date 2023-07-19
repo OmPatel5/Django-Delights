@@ -3,17 +3,30 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'inventory/menu.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/home.css' %}">
+
 {% endblock %}
 
 
 {% block content %}
+<div class="title">
 <h1 class="menu-items-title">Menu Items</h1>
+
+<h2><a class="submit" href="{% url 'create_menu_item'%}">Create Menu Item</a></h2>
+
+<h2><a class="submit" href="{% url 'create_recipe_requirement'%}">Add Required Ingredient to a Menu Item</a></h2>
+</div>
+
+
 
 <div class="menu-items">
 {% for item in menu %}
     <div class="item-card">
-        <h2>{{item.item_name}}</h1>
-        <h3>{{item.price}}</h2>
+        <h2>{{item.item_name}}</h2>
+        <h3>{{item.price}}</h3>
+        <h3>is_available: {{item.is_available}}</h3>
+        <a href="{% url 'update_menu_item_availability' item.id %}"><h3 class="hello">Change Availability</h3></a>
+        
 
         <p>Ingredients Needed: </p>
         
@@ -22,6 +35,8 @@
                 <li>{{ingredient.quantity_needed}} {{ingredient.ingredient.unit}} of {{ingredient.ingredient.ingredient_name}}</li>
             {% endfor %}
         </ul>
+
+        
     </div>
 
 

@@ -2,21 +2,28 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'inventory/table.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/home.css' %}">
+
 
 {% endblock %}
 
 
 {% block content %}
 <div class="ingredients">
+<div class="title">
 <h1 class="ingredients-title">Ingredients Inventory</h1>
+<!-- Added class "submit" for css styling -->
+<h2><a class="submit" href="{% url 'create_ingredient'%}">Add Ingredient</a></h2>
+</div>
+
 <table>
     <tr>
         <th>ingredient_name</th>
         <th>available_quantity</th>
         <th>unit</th>
         <th>price_per_unit</th>
+        <th>Actions</th>
     </tr>
 
     {% for ingredient in ingredient_list %}
@@ -25,6 +32,8 @@
             <td>{{ingredient.available_quantity}}</td>
             <td>{{ingredient.unit}}</td>
             <td>{{ingredient.price_per_unit}}</td>
+            <td class="actions"><a href="{% url 'delete_ingredient' ingredient.id %}">❌</a><h2><a class="submit" href="{% url 'update_ingredient' ingredient.id%}">Update</a></h2></td>
+
         </tr>
 
     {%endfor%}

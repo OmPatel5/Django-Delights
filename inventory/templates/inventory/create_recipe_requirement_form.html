@@ -1,0 +1,21 @@
+{% extends "inventory/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/home.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="welcome-page">
+    <h1>Create Recipe Requirement</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="submit" type="submit" value="Submit">
+    </form>
+</div>
+
+
+{% endblock %}

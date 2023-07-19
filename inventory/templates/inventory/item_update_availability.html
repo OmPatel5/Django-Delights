@@ -1,0 +1,23 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/home.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="welcome-page">
+    <h2>Update Availability</h2>
+    <form method="post">
+    <div>
+        {% csrf_token %}
+        {{form.as_p}}
+        <p>Are you sure you want to update the availability?"</p>
+        <input class="submit" type="submit" value="Confirm">
+    </div>
+    </form>
+</div>
+
+{% endblock %}

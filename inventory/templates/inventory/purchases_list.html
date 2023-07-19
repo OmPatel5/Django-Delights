@@ -2,8 +2,9 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'inventory/table.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'inventory/home.css' %}">
+
 
 {% endblock %}
 
@@ -11,7 +12,11 @@
 {% block content %}
 
 <div class="purchases">
-    <h1 class="purchases-title">Purchases</h1>
+    <div class="title">
+        <h1 class="purchases-title">Purchases</h1>
+        <h2><a class="submit" href="{% url 'purchase_menu_item'%}">Purchase Menu Item</a></h2>
+    </div>
+
     <h2>{{revenue}}</h2>
     <table>
         <tr>

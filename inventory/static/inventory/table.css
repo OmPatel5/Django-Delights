@@ -45,3 +45,10 @@ tbody tr:nth-child(even) {
   table {
     background-color: #ff33cc;
   }
+
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

@@ -1,14 +1,21 @@
-{% extends 'inventory/base.html' %}
+{% extends "inventory/base.html" %}
 {% load static %}
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'inventory/home.css' %}">
+
 {% endblock %}
 
 {% block content %}
+
 <div class="welcome-page">
-    <h1>Welcome to Django Delights!</h1>
-    <p>a place where you can check the ingredients inventory, menu items, and purchases</p>
-    <p>get started</p>
+<h1>Purchase Menu Item</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="submit" type="submit" value="Submit">
+</form>
 </div>
+
+
 {% endblock %}
